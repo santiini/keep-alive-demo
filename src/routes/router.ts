@@ -5,6 +5,7 @@ import { RouteProps } from 'react-router'
 import Login from '../container/Login'
 import NotFound from '../container/NotFound'
 import IndexHome from '../container/IndexHome'
+import Sidebar from '../container/Layout/Sidebar'
 
 export interface RouteItem {
   path: string
@@ -22,6 +23,12 @@ const routes: RouteItem[] = [
     key: 'home',
     component: IndexHome,
     exact: true,
+    requiresAuth: false
+  },
+  {
+    path: '/layout',
+    key: 'layout',
+    component: Sidebar,
     requiresAuth: false
   },
   {
