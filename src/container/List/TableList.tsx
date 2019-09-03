@@ -2,10 +2,10 @@ import React, {FC, useState} from 'react'
 import { RouteComponentProps } from 'react-router';
 import {Table, Input} from 'antd'
 import { Link } from 'react-router-dom';
-import { useKeepAliveEffect } from 'react-keep-alive';
+// import { useKeepAliveEffect } from 'react-keep-alive';
 
 const columns = [
-  {title: 'id', dataIndex: 'id', render: (id: string) => <Link to="/weibo/detail">{id}</Link>},
+  {title: 'id', dataIndex: 'id', render: (id: string) => <Link to="/list/detail">{id}</Link>},
   {title: 'name', dataIndex: 'name'},
   {title: 'weight', dataIndex: 'weight', editable: true},
   {title: 'operation', dataIndex: 'operation'},
@@ -37,20 +37,20 @@ const list = [
   {id: 23, name: 'test44', weight: 10},
 ];
 
-const List: FC<RouteComponentProps> = props => {
+const TableList: FC<RouteComponentProps> = props => {
   const [value, setValue] = useState('');
 
   const handleChange = (e: any) => {
     setValue(e.target.value)
   }
 
-  useKeepAliveEffect(() => {
-    console.log('activated');
+  // useKeepAliveEffect(() => {
+  //   console.log('activated');
 
-    return () => {
-      console.log('unactivated');
-    };
-  });
+  //   return () => {
+  //     console.log('unactivated');
+  //   };
+  // });
   return (
     <div>
       <Input value={value} onChange={handleChange} />
@@ -64,4 +64,4 @@ const List: FC<RouteComponentProps> = props => {
   )
 }
 
-export default List
+export default TableList
